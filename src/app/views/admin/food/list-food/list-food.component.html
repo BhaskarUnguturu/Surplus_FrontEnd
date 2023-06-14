@@ -1,0 +1,91 @@
+<mat-toolbar>
+    Donations
+    <span class="fill-remaining-space"></span>
+    <button mat-raised-button color="primary"
+        (click)="export()">
+        Export Report</button>
+    &nbsp;
+    <button mat-raised-button color="primary"
+        [routerLink]="'/admin/food/add'"><mat-icon>add_circle</mat-icon>
+        Add Donation</button>
+</mat-toolbar>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef class="headers"> No. </th>
+        <td class="headers" mat-cell *matCellDef="let i=index"> {{i+1}}
+        </td>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type</th>
+        <td mat-cell *matCellDef="let element"> {{element.typeOfFood}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="typeOfDonation">
+        <th mat-header-cell *matHeaderCellDef> Donation Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.typeOfDonation}} </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="expirationDate">
+        <th mat-header-cell *matHeaderCellDef> Expiration Date </th>
+        <td mat-cell *matCellDef="let element">
+            {{_utilityService.getFormatedDateTime(element.expirationDate)}}
+        </td>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="dietaryRestrictions">
+        <th mat-header-cell *matHeaderCellDef> Dietary Restrictions </th>
+        <td mat-cell *matCellDef="let element"> {{element.dietaryRestrictions}}
+        </td>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="schedulingDateTime">
+        <th mat-header-cell *matHeaderCellDef> Scheduling Date Time </th>
+        <td mat-cell *matCellDef="let element">
+            {{_utilityService.getFormatedDateTime(element.schedulingTimeDate)}}
+        </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <!-- <button mat-menu-item>
+                    <mat-icon>visibility</mat-icon>
+                    <span>View</span>
+                </button> -->
+                <button mat-menu-item [routerLink]="'/admin/food/edit/' +
+                    element.id">
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item (click)="addRating(element.id)">
+                    <mat-icon>add_circle</mat-icon>
+                    <span>Rating & Feedback</span>
+                </button>
+                <!-- <button mat-menu-item>
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                </button> -->
+            </mat-menu>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

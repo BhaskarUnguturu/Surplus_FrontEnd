@@ -1,0 +1,25 @@
+<mat-toolbar>
+  Rating & Feedback
+  <span class="fill-remaining-spac"></span>
+  <button mat-icon-button color="primary" (click)="matDialogRef.close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="outline">
+    <mat-label>Rating</mat-label>
+    <input type="number" matInput min="0" max="5" placeholder="Enter rating"
+      formControlName="rating">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Feedback</mat-label>
+    <textarea matInput placeholder="Enter feedback" formControlName="feedback"></textarea>
+  </mat-form-field>
+</form>
+<div class="text-center">
+  <button mat-raised-button color="primary"
+    [disabled]="!formGroup.controls['rating'].value &&
+    !formGroup.controls['feedback'].value" (click)="submit()"><mat-icon>send</mat-icon>Send</button>
+</div>

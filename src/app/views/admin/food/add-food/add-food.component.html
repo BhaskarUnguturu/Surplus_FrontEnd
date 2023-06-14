@@ -1,0 +1,88 @@
+<mat-toolbar>
+    Add Donation
+    <span class="fill-remaining-space"></span>
+    <button mat-raised-button color="primary" [disabled]="formGroup.invalid"
+        (click)="submit()"><mat-icon>save</mat-icon>
+        Save</button>
+</mat-toolbar>
+
+<form [formGroup]="formGroup">
+    <div class="row">
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select placeholder="Choose Type"
+                    formControlName="typeOfFood">
+                    <mat-option *ngFor="let element of
+                        _constantService.FOOD_TYPES" [value]="element.key">{{element.value}}</mat-option>
+                </mat-select>
+                <mat-error>Type is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Quantity</mat-label>
+                <input type="number" matInput placeholder="Enter quantity"
+                    formControlName="quantity">
+                <mat-error>Quantity is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Dietary Restrictions</mat-label>
+                <mat-select plaseholder="choose dietary restriction"
+                    formControlName="dietaryRestrictions">
+                    <mat-option value="veg">Veg</mat-option>
+                    <mat-option value="nonveg">Non veg</mat-option>
+                </mat-select>
+                <mat-error>Dietary restrictions is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Receipent Type</mat-label>
+                <mat-select plaseholder="choose receipent type"
+                    formControlName="typeOfDonation">
+                    <mat-option value="indivisual">Indivisual</mat-option>
+                    <mat-option value="organization">Organization</mat-option>
+                </mat-select>
+                <mat-error>Receipent Type is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Scheduling time & date</mat-label>
+                <input matInput [matDatepicker]="picker"
+                    formControlName="schedulingTimeDate">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Scheduling time & date is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Expiration Date</mat-label>
+                <input matInput [matDatepicker]="expirationDatePicker"
+                    formControlName="expirationDate">
+                <mat-datepicker-toggle matIconSuffix
+                    [for]="expirationDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #expirationDatePicker></mat-datepicker>
+                <mat-error>Expiration date is required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Venue</mat-label>
+                <input type="text" matInput placeholder="Enter venue"
+                    formControlName="venue">
+                <mat-error>Venue is required</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+</form>

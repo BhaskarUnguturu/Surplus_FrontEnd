@@ -1,0 +1,303 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+}
+
+.mat-drawer-side {
+    border-right: none;
+    background: rgb(255, 255, 255);
+    color: #fff;
+    min-width: 300px;
+}
+
+.mat-toolbar-fixed {
+    //box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+}
+.mat-sidenav-fixed {
+    width: 300px;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.2), -4px 0 16px rgba(0, 0, 0, 0.2);
+}
+
+.mat-sidenav-content {
+    overflow-x: hidden;
+}
+
+.alert {
+    z-index: 2;
+    padding: 16px 1.25rem;
+    border-radius: 0;
+}
+
+#overlay {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 65px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    cursor: pointer;
+}
+
+mat-icon:hover {
+    background-color: rgb(233, 233, 229);
+    height: 40px;
+    width: 40px;
+    padding-top: 8px;
+}
+
+/*section: menu bar*/
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/sliders/slider1.jpg");
+    height: 80px;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-left {
+    position: relative;
+    float: left;
+    width: auto;
+    display: inline-block;
+}
+
+.nav-right {
+    position: relative;
+    float: right;
+    width: auto;
+    display: inline-block;
+}
+.nav-fill {
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/*amazon logo*/
+#nav-logo {
+    padding: 11px 18px 0 24px;
+    position: relative;
+    width: 192px;
+}
+/*amazon TryPrime link*/
+#nav-logo .nav-logo-tagline {
+    color: #48a3c6;
+    position: absolute;
+    top: 31px;
+    left: 93px;
+    font-size: 11px;
+    line-height: 11px;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    text-decoration: underline;
+}
+#nav-logo .nav-logo-tagline:hover {
+    color: #ffffff;
+}
+
+/*amazon nav right #holiday*/
+#nav-holiday {
+    top: 9px;
+    position: relative;
+    background-image: url("https://raw.githubusercontent.com/iAmCaroly/amazon-homepage-clone/main/img/fathers_day.PNG");
+    width: 400px;
+    height: 50px;
+}
+
+#nav-holiday a {
+    display: block;
+    height: 100%;
+}
+
+#nav-search {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding-top: 11px;
+    padding-right: 25px;
+}
+
+#nav-search input {
+    width: 100%;
+}
+
+#nav-search .nav-left {
+    height: 35px;
+    background-color: #f3f3f3;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #cdcdcd;
+    overflow: hidden;
+}
+
+#nav-search .nav-left:hover {
+    background-color: #dadada;
+    border-left-color: #dadada;
+    border-top-color: #dadada;
+    border-bottom-color: #dadada;
+}
+
+#nav-search .nav-search-label {
+    color: #777;
+    display: block;
+    font-size: 12px;
+    line-height: 33px;
+    margin-right: 21px;
+    margin-left: 10px;
+}
+/*arrow icon search bar*/
+#nav-search .nav-left i {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    color: #a0a0a0;
+    font-size: 11px;
+}
+
+/*search bar:selector*/
+#nav-search select {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    height: 35px;
+    display: block;
+    outline: none;
+    cursor: pointer;
+}
+
+#nav-search .nav-fill {
+    height: 35px;
+    overflow: hidden;
+}
+/*search bar: input field 'height'*/
+#nav-search .nav-fill input {
+    border: none;
+    height: 35px;
+    padding: 5px 10px;
+    font-size: 15px;
+    color: #111;
+    outline: none;
+}
+/*search bar: button*/
+#nav-search .nav-right {
+    background-color: #febd69;
+    width: 45px;
+    height: 35px;
+    border-radius: 0 4px 4x 0;
+}
+#nav-search .nav-right {
+    background-color: #f3a847;
+}
+#nav-search .nav-right i {
+    position: absolute;
+    top: 5px;
+    right: 13px;
+    color: #333;
+    font-size: 22px;
+    opacity: 0.9;
+}
+#nav-search .nav-right input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-indent: -9999px;
+}
+/*section bellow search bar*/
+#nav-main ul {
+    list-style-type: none;
+    position: relative;
+    padding: 0;
+    margin: 18px 0 0 0;
+}
+#nav-main li {
+    display: inline-block;
+    padding: 10px 9px 0 0;
+}
+#nav-main a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+#nav-main .nav-a {
+    padding: 7px 10px;
+    border: none;
+    display: inline-block;
+    position: relative;
+    outline: none;
+}
+#nav-main .nav-a:hover {
+    border: 1px solid #4f5965;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 rgb(255, 255, 255, 0.5);
+}
+#nav-main .nav-a span {
+    display: block;
+    margin-left: -2px;
+    font-weight: 300;
+    color: #ccc;
+    font-size: 12px;
+}
+#nav-main i.fa-caret-down {
+    color: #ccc;
+    font-size: 11px;
+    padding-left: 3px;
+}
+#nav-mai .nav-left {
+    height: 55px;
+}
+#nav-main .nav-left .nav-shop {
+    float: left;
+    width: 192px;
+    padding: 4px 12px 0 15px;
+}
+/*align DEPARTMENTS */
+#nav-main .nav-left .nav-shop a {
+    margin-top: 16px;
+}
+
+#nav-main .nav-fill a {
+    font-weight: 500;
+    color: #ccc;
+}
+#nav-mai .nav-fill a:hover {
+    text-decoration: underline;
+}
+/*align right section down*/
+#nav-main .nav-right {
+    padding-right: 6px;
+}
+#nav-main .nav-right a {
+    margin-top: -2px;
+}
+/*add CART icon*/
+#nav-main .nav-right .cart {
+    background: transparent url(https://raw.githubusercontent.com/iAmCaroly/amazon-homepage-clone/main/img/cart.png)
+        no-repeat 11px 18px;
+    background-size: 39px;
+    padding: 7px 20px 7px 50px;
+}
+/*align number 0 in the CART icon*/
+#nav-main .nav-right .cart span {
+    color: #f08804;
+    // margin-left: -20px;
+    font-size: 16px;
+    font-weight: 700;
+}

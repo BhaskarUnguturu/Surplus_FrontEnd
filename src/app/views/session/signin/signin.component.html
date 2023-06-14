@@ -1,0 +1,61 @@
+<!-- /login-section -->
+<section class="login-section" style="background-image: linear-gradient(rgba(0,
+    0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('assets/images/login-banner.webp');">
+    <div class="login-hny">
+        <div class="form-content">
+            <!-- <div class="form-right">
+                <div class="overlay">
+                    <div class="grid-info-form">
+                        <img src="assets/images/logo.png" alt="" style="width:
+                            250px; height: 120px;">
+                        <h3>SIGNIN ACCOUNT </h3>
+                        <p>
+                            An employee management system is a platform where
+                            all work-related as well as important
+                            personal details of an employee is stored and
+                            managed in a secure way. By using this system,
+                            you can manage admin activities in an easier and
+                            quicker way.</p>
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-left">
+                <div class="middle">
+                    <img src="assets/images/logo.png" alt="" style="width:
+                        250px; height: 100px;">
+                    <h4>Sign In</h4>
+                </div>
+                <form [formGroup]="formGroup" class="signin-form"
+                    (ngSubmit)="submit()">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input type="text" matInput formControlName="username"
+                            placeholder="Enter your username">
+                        <mat-error>
+                            Username is required
+                        </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput
+                            formControlName="password" placeholder="Enter your
+                            password">
+                        <mat-error>
+                            Password is required
+                        </mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button class="btn" type="submit"
+                        [disabled]="formGroup.invalid">Signin</button>
+                </form>
+                <!-- <div class="copy-right text-center">
+                    <p>
+                        <app-footer-line></app-footer-line>
+                    </p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //login-section -->

@@ -1,0 +1,19 @@
+@media only screen and (max-width: 600px) {
+    th.mat-header-cell {
+        padding-right: 25px !important;
+        padding-left: 25px !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    td.mat-cell {
+        padding-right: 25px !important;
+        padding-left: 25px !important;
+    }
+}
+
+
+// mat-form-field{
+//     width: 49%;
+//     margin-right: 10px;
+// }

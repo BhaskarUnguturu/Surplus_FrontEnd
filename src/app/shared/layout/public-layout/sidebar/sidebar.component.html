@@ -1,0 +1,97 @@
+<div class="top_head">
+    <img class="logo" src="/assets/images/dummy/user.jpg" alt="Logo">
+    Hello, User
+</div>
+<br>
+<h3 style="font-size: 20px; font-weight: bold;">Trending</h3>
+<mat-nav-list class="desktop-sidebar">
+    <ng-container *ngFor="let element of dataList">
+        <ng-container *ngIf="element.type === 'link'">
+            <a mat-list-item [routerLink]="element.link">
+                <!-- <mat-icon>{{element.icon}}</mat-icon> -->
+                <h3>{{element.title}}</h3>
+            </a>
+        </ng-container>
+
+        <ng-container *ngIf="element.type === 'dropdown'">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>{{element.icon}}</mat-icon>
+                        <h3>{{element.title}}</h3>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <ng-container *ngFor="let sub of element.sub">
+                        <a mat-list-item [routerLink]="sub.link">
+                            <mat-icon>{{sub.icon}}</mat-icon>
+                            <h3>{{sub.title}}</h3>
+                        </a>
+                    </ng-container>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </ng-container>
+    </ng-container>
+</mat-nav-list>
+<hr>
+
+<h3 style="font-size: 20px; font-weight: bold;">Digital Content & Devices</h3>
+<mat-nav-list class="desktop-sidebar">
+    <ng-container *ngFor="let element of dataList2">
+        <ng-container *ngIf="element.type === 'link'">
+            <a mat-list-item [routerLink]="element.link">
+                <!-- <mat-icon>{{element.icon}}</mat-icon> -->
+                <h3>{{element.title}}</h3>
+            </a>
+        </ng-container>
+
+        <ng-container *ngIf="element.type === 'dropdown'">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>{{element.icon}}</mat-icon>
+                        <h3>{{element.title}}</h3>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <ng-container *ngFor="let sub of element.sub">
+                        <a mat-list-item [routerLink]="sub.link">
+                            <mat-icon>{{sub.icon}}</mat-icon>
+                            <h3>{{sub.title}}</h3>
+                        </a>
+                    </ng-container>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </ng-container>
+    </ng-container>
+</mat-nav-list>
+
+<mat-nav-list class="mobile-sidebar">
+    <ng-container *ngFor="let element of dataList">
+        <ng-container *ngIf="element.type === 'link'">
+            <a mat-list-item (click)="onClickNavBar(element.link)">
+                <mat-icon>{{element.icon}}</mat-icon>
+                <h3>{{element.title}}</h3>
+            </a>
+        </ng-container>
+
+        <ng-container *ngIf="element.type === 'dropdown'">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>{{element.icon}}</mat-icon>
+                        <h3>{{element.title}}</h3>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <ng-container *ngFor="let sub of element.sub">
+                        <a mat-list-item (click)="onClickNavBar(sub.link)">
+                            <mat-icon>{{sub.icon}}</mat-icon>
+                            <h3>{{sub.title}}</h3>
+                        </a>
+                    </ng-container>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </ng-container>
+    </ng-container>
+</mat-nav-list>

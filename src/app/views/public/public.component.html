@@ -1,0 +1,39 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenavLeft [mode]="mode" fixedInViewport="fixedInViewport"
+        [opened]="isOpened">
+        <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav #sidenavRight [mode]="mode" fixedInViewport="fixedInViewport"
+        [opened]="isOpened" position="end">
+        <app-profile-sidebar></app-profile-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- Header -->
+        <header>
+            <mat-toolbar style="background: none;">
+                <a [routerLink]="'/'" class="nav-logo-link">
+                    <img src="assets/images/logo.png" alt="" style="width:
+                        170px; height: 60px;">
+                </a>
+                <span class="fill-remaining-space"></span>
+                <nav id="nav-main">
+                    <a class="nav-a" [routerLink]="'/signin'"><i class="fa
+                            fa-sigin"></i> Sign In</a>
+                    <a class="nav-a" [routerLink]="'/signup'"><i class="fa
+                            fa-sigin"></i> Sign Up</a>
+                    <!-- <a class="nav-a" href="#"><i class="fa fa-info"></i> About</a>
+                    <a class="nav-a" href="#"><i class="fa fa-phone"></i>
+                        Contact</a> -->
+                </nav>
+            </mat-toolbar>
+            <br>
+        </header>
+        <div class="public-wrapper">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- footer -->
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>
