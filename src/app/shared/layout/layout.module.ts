@@ -17,7 +17,7 @@ import { FooterLineComponent } from './footer-line/footer-line.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-//import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { SharedComponentsModule } from '../shared-components/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { MatInputModule } from "@angular/material/input";
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    //SharedComponentsModule
+    SharedComponentsModule
   ],
   exports: [
     HeaderComponent,

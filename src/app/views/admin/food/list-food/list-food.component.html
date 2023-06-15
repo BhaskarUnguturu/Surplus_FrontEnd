@@ -6,7 +6,9 @@
         Export Report</button>
     &nbsp;
     <button mat-raised-button color="primary"
-        [routerLink]="'/admin/food/add'"><mat-icon>add_circle</mat-icon>
+        [routerLink]="'/admin/food/add'" *ngIf="sessionUser.role === 1 ||
+        sessionUser.role === 2 || sessionUser.role === 3 || sessionUser.role ===
+        4"><mat-icon>add_circle</mat-icon>
         Add Donation</button>
 </mat-toolbar>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -74,14 +76,21 @@
                     <mat-icon>edit</mat-icon>
                     <span>Edit</span>
                 </button>
-                <button mat-menu-item (click)="addRating(element.id)">
+                <button mat-menu-item (click)="addRating(element.id)"
+                    *ngIf="sessionUser.role === 5 ||
+                    sessionUser.role === 6">
                     <mat-icon>add_circle</mat-icon>
-                    <span>Rating & Feedback</span>
+                    <span>Add Rating & Feedback</span>
                 </button>
-                <!-- <button mat-menu-item>
-                    <mat-icon>delete</mat-icon>
-                    <span>Delete</span>
-                </button> -->
+                <button mat-menu-item
+                    (click)="viewRatingAndFeedback(element)"
+                    *ngIf="sessionUser.role === 1 ||
+                    sessionUser.role === 2 || sessionUser.role === 3 ||
+                    sessionUser.role ===
+                    4">
+                    <mat-icon>add_circle</mat-icon>
+                    <span>View Rating & Feedback</span>
+                </button>
             </mat-menu>
         </td>
     </ng-container>

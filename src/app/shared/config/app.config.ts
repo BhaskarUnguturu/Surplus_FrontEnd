@@ -5,7 +5,7 @@ export interface AppConfig {
     developedBy: string
 }
 export const appConfig: AppConfig = {
-    apiUrl: 'http://localhost:8080/api/v1/',
+    apiUrl: 'http://159.65.157.19:8080/fwm/api/v1/',
     projectName: 'Surplus share',
-    developedBy: 'Team Surplus share'
+    developedBy: 'Surplus share Team'
 };

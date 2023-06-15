@@ -323,7 +323,6 @@ export class UserService implements Resolve<any>{
                 'Create Date': this._utilityService.getFormatedDateTime(element.createdAt),
                 'Date Of Birth': this._utilityService.getFormatedDate(element.dateOfBirth),
                 'Date Of Joining': this._utilityService.getFormatedDate(element.dateOfJoining),
-                'Gender': this._utilityService.getGender(element.gender),
                 'Role': this._utilityService.getUserRole(element.role),
                 'Status': this._utilityService.getStatus(element.status),
                 'Address': element.address,

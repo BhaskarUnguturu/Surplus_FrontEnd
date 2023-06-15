@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UtilityService } from '../../../../shared/services/utility.service';
 import { FoodService } from '../food.service';
 import { RatingFeedbackComponent } from './rating-feedback/rating-feedback.component';
+import { ViewRatingFeedbackComponent } from './view-rating-feedback/view-rating-feedback.component';
 
 @Component({
   selector: 'app-list-food',
@@ -41,7 +42,17 @@ export class ListFoodComponent implements OnInit {
     });
   }
 
-  export() {
+  viewRatingAndFeedback(element: any) {
+    let dialogRef = this._matDialog.open(ViewRatingFeedbackComponent, {
+      panelClass: 'contact-form-dialig',
+      width: '400px',
+      data: element
+    });
+  }
 
+  export() {
+    this._foodService.getReport().then((response: any) => {
+      this._foodService.exportData(response.data);
+    })
   }
 }

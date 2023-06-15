@@ -1,1 +1,72 @@
-<h1>hi progress</h1>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="section-header">
+    <h1>Registration</h1>
+    <img class="deco"
+      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpluspng.com%2Fimg-png%2Fdivider-png-hd-divider-png-1589-304-1589.png&f=1&nofb=1">
+  </div>
+  <div class="container">
+    <form [formGroup]="formGroup">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput placeholder="Enter name"
+          formControlName="fullName">
+        <mat-error>Name is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Enter email"
+          formControlName="email">
+        <mat-error>Email is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile Number</mat-label>
+        <input type="number" matInput placeholder="Enter mobile number"
+          formControlName="mobileNumber">
+        <mat-error>Mobile Number is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input type="text" matInput placeholder="Enter address"
+          formControlName="address">
+        <mat-error>Address is required</mat-error>
+      </mat-form-field>
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Pincode</mat-label>
+        <input type="number" matInput placeholder="Enter pincode"
+          formControlName="fullName">
+        <mat-error>Pincode is required</mat-error>
+      </mat-form-field> -->
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+        <mat-select placeholder="Choose Role" formControlName="role">
+          <mat-option *ngFor="let element of _constantService.USER_ROLES"
+            [value]="element.key">{{element.value}}</mat-option>
+        </mat-select>
+        <mat-error>Type is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Enter password"
+          formControlName="password">
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input type="password" matInput placeholder="Enter confirm password"
+          formControlName="confirmPassword">
+        <mat-error>Confirm Password is required</mat-error>
+      </mat-form-field>
+    </form>
+    <div class="text-center">
+      <button mat-raised-button color="primary" [disabled]="formGroup.invalid"
+        (click)="submit()"><mat-icon>send</mat-icon>
+        Submit</button>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>

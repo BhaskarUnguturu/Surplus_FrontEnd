@@ -26,6 +26,12 @@ export class RatingFeedbackComponent implements OnInit {
 
   submit() {
     const data = this.formGroup.getRawValue();
+    if (data.rating) {
+      this._foodService.addRating({ userId: this._data, rating: data.rating });
+    }
+    if (data.feedback) {
+      this._foodService.addFeedback({ userId: this._data, rating: data.feedback });
+    }
   }
 
 }

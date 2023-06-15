@@ -1,0 +1,31 @@
+<img [src]="_utilityService.getImageUrl(file?.thumbnailUrl,type)" alt=""
+    style="width: 145px; height: 145px;"
+    class="img-thumbnail">
+<br>
+<div class="row" style="padding-left: 5px;">
+    <ng-container *ngIf="file && file !== ''">
+        <a mat-raised-button color="accent" class="lh-custom"
+            [href]="_utilityService.getImageUrl(file?.originalUrl,type)"
+            target="_blank">
+            <mat-icon>visibility</mat-icon>
+        </a>
+        &nbsp;&nbsp;
+        <button type="button" mat-raised-button color="warn" class="lh-custom"
+            (click)="removeFile()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </ng-container>
+</div>
+<br>
+
+<input *ngIf="!file" type="file" (change)="onSelectFile($event)"
+    accept="image/x-png,image/gif,image/jpeg">
+<br>
+<!-- Progress Bar -->
+<div class="progress form-group" *ngIf="progressBarForFile> 0">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+        [style.width.%]="progressBarForFile">
+    </div>
+</div>
+<span style="color: darkblue;" *ngIf="progressBarForFile> 0 ">
+    {{progressBarForFile}} % </span>

@@ -1,0 +1,4 @@
+<img [src]="_utilityService.getImageUrl(image,type)" alt=""
+    [ngClass]="classes"
+    [style.width]="width"
+    [style.height]="height" (error)="_utilityService.getErrorImage(type)">

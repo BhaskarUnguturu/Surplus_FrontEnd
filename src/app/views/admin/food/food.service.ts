@@ -293,21 +293,6 @@ export class FoodService implements Resolve<any>{
         let dataList: any[] = [];
         data.forEach(element => {
             let json = {
-                'Name': `${element.firstName} ${element.lastName}`,
-                'Email': element.email,
-                'Mobile': element.mobileNumber,
-                'Emergency Mobile': element.emergencyMobileNumber,
-                'Create Date': this._utilityService.getFormatedDateTime(element.createdAt),
-                'Date Of Birth': this._utilityService.getFormatedDate(element.dateOfBirth),
-                'Date Of Joining': this._utilityService.getFormatedDate(element.dateOfJoining),
-                'Gender': this._utilityService.getGender(element.gender),
-                'Role': this._utilityService.getUserRole(element.role),
-                'Status': this._utilityService.getStatus(element.status),
-                'Address': element.address,
-                'Country': element.country,
-                'State': element.state,
-                'City': element.city,
-                'Zip Code': element.zipCode
             }
             dataList.push(json);
         });
@@ -315,5 +300,59 @@ export class FoodService implements Resolve<any>{
 
     getDataListByUserId(id: any) {
         return this._apiService.get(`food/list/${id}`);
+    }
+
+    addRating(data: any) {
+        this._loadingService.loading.next(true);
+        this._apiService.post('rating/add', data).then((response: any) => {
+            if (response && response.status === 'OK') {
+                this._loadingService.loading.next(false);
+                this._utilityService.successMessage(response.message, response.status);
+            } else {
+                this._loadingService.loading.next(false);
+                this._utilityService.errorMessage(response.message, response.status);
+            }
+        }, error => {
+            this._loadingService.loading.next(false);
+            console.log(error);
+            if (error.status === 0) {
+                this._utilityService.errorMessage('Internal Server Error! Please try again after some time', 'ERROR');
+            } else {
+                this._utilityService.errorMessage(error.error.message, error.statusText);
+            }
+        });
+    }
+
+    addFeedback(data: any) {
+        this._loadingService.loading.next(true);
+        this._apiService.post('feedback/add', data).then((response: any) => {
+            if (response && response.status === 'OK') {
+                this._loadingService.loading.next(false);
+                this._utilityService.successMessage(response.message, response.status);
+            } else {
+                this._loadingService.loading.next(false);
+                this._utilityService.errorMessage(response.message, response.status);
+            }
+        }, error => {
+            this._loadingService.loading.next(false);
+            console.log(error);
+            if (error.status === 0) {
+                this._utilityService.errorMessage('Internal Server Error! Please try again after some time', 'ERROR');
+            } else {
+                this._utilityService.errorMessage(error.error.message, error.statusText);
+            }
+        });
+    }
+
+    getRating(id: any) {
+        return this._apiService.get(`user/${id}/ratings`);
+    }
+
+    getFeedback(id: any) {
+        return this._apiService.get(`user/${id}/feedback`);
+    }
+
+    getReport() {
+        return this._apiService.get(`user/reporting`);
     }
 }

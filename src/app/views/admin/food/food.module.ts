@@ -23,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RatingFeedbackComponent } from './list-food/rating-feedback/rating-feedback.component';
+import { ViewRatingFeedbackComponent } from './list-food/view-rating-feedback/view-rating-feedback.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RatingFeedbackComponent } from './list-food/rating-feedback/rating-feed
     AddFoodComponent,
     ListFoodComponent,
     ViewFoodComponent,
-    RatingFeedbackComponent
+    RatingFeedbackComponent,
+    ViewRatingFeedbackComponent
   ],
   imports: [
     CommonModule,
