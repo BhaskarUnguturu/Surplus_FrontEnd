@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 //import { SharedComponentsModule } from '../shared-components/shared-components.module';
+import { ProfileComponent } from './profile/profile.component';
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { MatInputModule } from "@angular/material/input";
     FooterComponent,
     SidebarComponent,
     FooterLineComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
