@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { PublicRoutingModule } from './public-routing.module';
 import { PublicComponent } from './public.component';
-import { PublicLayoutModule } from '../../shared/layout/public-layout/public-layout.module';
 import { HomeComponent } from './home/home.component';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
@@ -22,6 +21,7 @@ import { ContactComponent } from './home/contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { LayoutModule } from 'src/app/shared/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,8 @@ import { MatInputModule } from '@angular/material/input';
   ],
   imports: [
     CommonModule,
+    LayoutModule,
     PublicRoutingModule,
-    PublicLayoutModule,
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
