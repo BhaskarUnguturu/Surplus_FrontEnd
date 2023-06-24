@@ -9,6 +9,25 @@ import { ContactService } from './contact.service';
 })
 export class ContactComponent implements OnInit {
 
-  
+  displayedColumns: string[] = ['sno', 'name', 'email', 'mobileNumber', 'message', 'createdAt'];
+  dataSource: any;
+  sessionUser: any;
+
+  constructor(
+    public _contactService: ContactService,
+    public _utilityService: UtilityService
+  ) {
+    this.sessionUser = _utilityService.getSessionUser();
+  }
+
+  ngOnInit(): void {
+    this.getDataList();
+  }
+
+  getDataList() {
+    this._contactService.getDataList().then((response: any) => {
+      this.dataSource = response.data;
+    })
+  }
 
 }

@@ -1,1 +1,13 @@
-<h1>contact table for admin i need to work on this</h1>
+<mat-toolbar class="bg-none">
+    Contacts
+    <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef class="headers"> No. </th>
+        <td class="headers" mat-cell *matCellDef="let i=index"> {{i+1}}
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
