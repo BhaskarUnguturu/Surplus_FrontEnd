@@ -115,11 +115,6 @@ export class ListUserComponent implements OnInit {
     });
   }
 
-  /**
-   * Export
-   */
-  export() {
-    this._userService.getListByFilter(this.filterModel);
-  }
+
 
 }
