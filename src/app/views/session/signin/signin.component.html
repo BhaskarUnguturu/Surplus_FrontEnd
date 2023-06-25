@@ -46,6 +46,8 @@
                             Password is required
                         </mat-error>
                     </mat-form-field>
+                    <div class="text-right"><a (click)="forgotPassword()">Forgot
+                            password</a></div>
                     <button mat-raised-button class="btn" type="submit"
                         [disabled]="formGroup.invalid">Signin</button>
                 </form>
