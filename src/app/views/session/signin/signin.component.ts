@@ -35,7 +35,8 @@ export class SigninComponent implements OnInit {
 
   forgotPassword() {
     let dialogRef = this._matDialog.open(ForgotPasswordComponent, {
-      panelClass: 'contact-form-dialig'
+      panelClass: 'contact-form-dialig',
+      width: '500px'
     });
   }
 
