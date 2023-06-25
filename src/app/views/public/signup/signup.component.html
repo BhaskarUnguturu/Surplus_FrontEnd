@@ -33,17 +33,24 @@
           formControlName="address">
         <mat-error>Address is required</mat-error>
       </mat-form-field>
-      <!-- <mat-form-field appearance="outline">
-        <mat-label>Pincode</mat-label>
-        <input type="number" matInput placeholder="Enter pincode"
-          formControlName="fullName">
-        <mat-error>Pincode is required</mat-error>
-      </mat-form-field> -->
       <mat-form-field appearance="outline">
         <mat-label>Role</mat-label>
-        <mat-select placeholder="Choose Role" formControlName="role">
+        <mat-select placeholder="Choose Role" formControlName="role"
+          (selectionChange)="onSelectionChangeRole($event.value)">
           <mat-option *ngFor="let element of _constantService.USER_ROLES"
             [value]="element.key">{{element.value}}</mat-option>
+        </mat-select>
+        <mat-error>Type is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" id="res-id">
+        <mat-label>Dietary Restrictions</mat-label>
+        <mat-select placeholder="Choose dietary restrictions"
+          formControlName="dietaryRestrictions"
+          [required]="formGroup.controls['role'].value === 5 ||
+          formGroup.controls['role'].value === 6">
+          <mat-option value="veg">Veg</mat-option>
+          <mat-option value="nonveg">nonveg</mat-option>
+          <mat-option value="veg,nonveg">Both</mat-option>
         </mat-select>
         <mat-error>Type is required</mat-error>
       </mat-form-field>
