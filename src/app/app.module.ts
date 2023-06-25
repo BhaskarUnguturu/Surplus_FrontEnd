@@ -12,6 +12,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './views/session/jwt.interceptor';
 import { AuthGuardService } from './views/session/auth/auth-guard.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 export function tokenGetter() {
   return localStorage.getItem('fwmUserToken');
@@ -30,7 +32,9 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    MatDialogModule,
     HttpClientModule,
+    MatSelectModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter
