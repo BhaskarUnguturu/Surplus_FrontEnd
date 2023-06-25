@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { appConfig } from '../../../shared/config/app.config';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { SessionService } from '../session.service';
 
 @Component({
@@ -16,7 +18,8 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private titleService: Title,
-    private _sessionService: SessionService
+    private _sessionService: SessionService,
+    private _matDialog: MatDialog
   ) {
     this.titleService.setTitle(this.title);
   }
@@ -28,6 +31,13 @@ export class SigninComponent implements OnInit {
   submit() {
     const data = this.formGroup.getRawValue();
     this._sessionService.login(data);
+  }
+
+  forgotPassword() {
+    let dialogRef = this._matDialog.open(ForgotPasswordComponent, {
+      panelClass: 'contact-form-dialig',
+      width: '500px'
+    });
   }
 
 }
