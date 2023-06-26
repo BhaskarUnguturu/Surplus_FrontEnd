@@ -14,7 +14,6 @@ export class UtilityService {
     pagination: Pagination = { totalPages: 0, totalCount: 0, currentPage: 1, perPage: 25, data: [] };
     defaultUrlImage: string = '/assets/images/dummy/user.jpg';
     defaultUrlLogo: string = '/assets/images//dummy/logo.png';
-    defaultUrlProduct: string = '/assets/images/dummy/product.png';
 
     constructor(
         private _constantService: ConstantService,
@@ -92,8 +91,6 @@ export class UtilityService {
             url = this.defaultUrlImage;
         } else if (type && type === 'logo') {
             url = this.defaultUrlLogo;
-        } else if (type && type === 'product') {
-            url = this.defaultUrlProduct;
         } else {
             url = this.defaultUrlImage;
         }
@@ -114,8 +111,6 @@ export class UtilityService {
             url = this.defaultUrlImage;
         } else if (type && type === 'logo') {
             url = this.defaultUrlLogo;
-        } else if (type && type === 'product') {
-            url = this.defaultUrlProduct;
         } else {
             url = this.defaultUrlImage;
         }
@@ -134,14 +129,11 @@ export class UtilityService {
             url = this.defaultUrlImage;
         } else if (type && type === 'logo') {
             url = this.defaultUrlLogo;
-        } else if (type && type === 'product') {
-            url = this.defaultUrlProduct;
         } else {
             url = this.defaultUrlImage;
         }
         return url;
     }
-
 
     /**
      * Success toastr
@@ -199,35 +191,12 @@ export class UtilityService {
         }
     }
 
-    getLeaveStatus(key: any) {
-        let element = this._constantService.LEAVE_STATUS.find(item => item.key === key);
-        if (element) {
-            return element.value;
-        } else {
-            return 'Pending';
-        }
-    }
-
     getStatus(key: any) {
         let element = this._constantService.USER_STATUS.find(item => item.key === key);
         if (element) {
             return element.value;
         } else {
             return 'Inactive';
-        }
-    }
-
-    /**
-     * Get gender
-     * 
-     * @param key 
-     */
-    getGender(key: any) {
-        let element = this._constantService.GENDERS.find(item => item.key === parseInt(key));
-        if (element) {
-            return element.value;
-        } else {
-            return 'NA';
         }
     }
 
