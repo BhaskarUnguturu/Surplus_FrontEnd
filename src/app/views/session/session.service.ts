@@ -46,7 +46,7 @@ export class SessionService {
                 let user = {
                     id: response.data.user_details.id,
                     email: response.data.user_details.email,
-                    name: response.data.user_details.name,
+                    name: response.data.user_details.fullName,
                     role: response.data.user_details.role
                 };
                 localStorage.setItem('fwmUser', JSON.stringify(user));

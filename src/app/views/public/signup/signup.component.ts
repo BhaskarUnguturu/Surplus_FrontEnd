@@ -22,6 +22,19 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSelectionChangeRole(role: any) {
+    this.formGroup.controls['dietaryRestrictions'].setValue(null);
+    if (role === 5 || role === 6) {
+      let element = document.getElementById("res-id") as HTMLElement | null
+      if (element)
+        element.style.display = "block";
+    } else {
+      let element = document.getElementById("res-id") as HTMLElement | null
+      if (element)
+        element.style.display = "none";
+    }
+  }
+
   submit() {
     const data = this.formGroup.getRawValue();
     this._userService.addOrUpdateData(data, 'add');
