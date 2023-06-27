@@ -6,69 +6,155 @@
 
 <div class="bootstrap snippet">
     <div class="row">
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-3 col-sm-6" *ngIf="sessionUser.role === 0">
             <div class="circle-tile ">
-                <a href="#">
-                    <div class="circle-tile-heading dark-blue"><i class="fa
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa
                             fa-users fa-fw fa-3x"></i></div>
                 </a>
-                <div class="circle-tile-content dark-blue">
+                <div class="circle-tile-content blue">
                     <div class="circle-tile-description text-faded"> Total
-                        Donation</div>
-                    <div class="circle-tile-number text-faded ">265</div>
-                    <a class="circle-tile-footer" href="#">More Info<i class="fa
-                            fa-chevron-circle-right"></i></a>
+                        University</div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfUniversityMember}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-3 col-sm-6" *ngIf="sessionUser.role === 0">
             <div class="circle-tile ">
-                <a href="#">
-                    <div class="circle-tile-heading red"><i class="fa fa-users
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
                             fa-fw fa-3x"></i></div>
                 </a>
-                <div class="circle-tile-content red">
+                <div class="circle-tile-content blue">
                     <div class="circle-tile-description text-faded"> Total
-                        Donner
+                        Restaurant
                     </div>
-                    <div class="circle-tile-number text-faded ">10</div>
-                    <a class="circle-tile-footer" href="#">More Info<i class="fa
-                            fa-chevron-circle-right"></i></a>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfRestaurantMember}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-3 col-sm-6" *ngIf="sessionUser.role === 0">
             <div class="circle-tile ">
-                <a href="#">
-                    <div class="circle-tile-heading green"><i class="fa fa-users
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
                             fa-fw fa-3x"></i></div>
                 </a>
-                <div class="circle-tile-content green">
+                <div class="circle-tile-content blue">
                     <div class="circle-tile-description text-faded"> Total
-                        Receipent
+                        Indivisual
                     </div>
-                    <div class="circle-tile-number text-faded ">10</div>
-                    <a class="circle-tile-footer" href="#">More Info<i class="fa
-                            fa-chevron-circle-right"></i></a>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfIndividualMember}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-3 col-sm-6" *ngIf="sessionUser.role === 0">
             <div class="circle-tile ">
-                <a href="#">
+                <a>
                     <div class="circle-tile-heading blue"><i class="fa fa-users
                             fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content blue">
                     <div class="circle-tile-description text-faded">
-                        Today Donation
+                        Total NGO
                     </div>
-                    <div class="circle-tile-number text-faded ">10</div>
-                    <a class="circle-tile-footer" href="#">More Info<i class="fa
-                            fa-chevron-circle-right"></i></a>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfNGO}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6" *ngIf="sessionUser.role === 0">
+            <div class="circle-tile ">
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
+                            fa-fw fa-3x"></i></div>
+                </a>
+                <div class="circle-tile-content blue">
+                    <div class="circle-tile-description text-faded">
+                        Total Receipent Indivisual
+                    </div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfRecipientIndividualMember}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6" *ngIf="sessionUser.role === 0">
+            <div class="circle-tile ">
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
+                            fa-fw fa-3x"></i></div>
+                </a>
+                <div class="circle-tile-content blue">
+                    <div class="circle-tile-description text-faded">
+                        Total Receipent Organization
+                    </div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfRecipientOrganizationMember}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6" *ngIf="sessionUser.role === 1 ||
+            sessionUser.role === 2 || sessionUser.role === 3 || sessionUser.role
+            === 4 || sessionUser.role === 5 || sessionUser.role === 6">
+            <div class="circle-tile ">
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
+                            fa-fw fa-3x"></i></div>
+                </a>
+                <div class="circle-tile-content blue">
+                    <div class="circle-tile-description text-faded">
+                        Total Donation
+                    </div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfDonateFood}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6" *ngIf="sessionUser.role === 1 ||
+            sessionUser.role === 2 || sessionUser.role === 3 || sessionUser.role
+            === 4 || sessionUser.role === 5 || sessionUser.role === 6">
+            <div class="circle-tile ">
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
+                            fa-fw fa-3x"></i></div>
+                </a>
+                <div class="circle-tile-content blue">
+                    <div class="circle-tile-description text-faded">
+                        Total Inprogress Donation
+                    </div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfFoodPending}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6" *ngIf="sessionUser.role === 1 ||
+            sessionUser.role === 2 || sessionUser.role === 3 || sessionUser.role
+            === 4 || sessionUser.role === 5 || sessionUser.role === 6">
+            <div class="circle-tile ">
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
+                            fa-fw fa-3x"></i></div>
+                </a>
+                <div class="circle-tile-content blue">
+                    <div class="circle-tile-description text-faded">
+                        Total Distributed Donation
+                    </div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfFoodInProgress}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
                 </div>
             </div>
         </div>
