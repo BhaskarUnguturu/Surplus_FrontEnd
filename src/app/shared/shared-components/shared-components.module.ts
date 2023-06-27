@@ -7,13 +7,16 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatButtonModule } from "@angular/material/button";
-
+import { ShowImageComponent } from './show-image/show-image.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
     LoadingComponent,
     NoDataComponent,
-    ],
+    ShowImageComponent,
+    UploadImageComponent
+  ],
   imports: [
     CommonModule,
     MatProgressBarModule,
@@ -25,6 +28,8 @@ import { MatButtonModule } from "@angular/material/button";
   exports: [
     LoadingComponent,
     NoDataComponent,
+    ShowImageComponent,
+    UploadImageComponent,
     CommonModule
   ],
   entryComponents: [
