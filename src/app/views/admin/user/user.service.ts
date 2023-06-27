@@ -90,6 +90,37 @@ export class UserService implements Resolve<any>{
             email: [element ? element.email : null, [Validators.required, Validators.email]],
             mobileNumber: [element ? element.mobileNumber : null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             address: [element ? element.address : null, [Validators.required]],
+            dietaryRestrictions: null,
+            password: [null, [Validators.required]],
+            confirmPassword: [null, [Validators.required]]
+        }, {
+            validator: MustMatch('password', 'confirmPassword')
+        })
+    }
+
+    createProfileForm(element: any): FormGroup {
+        return this._formBuilder.group({
+            fullName: [element ? element.fullName : null, [Validators.required]],
+            role: [element ? element.role : null, [Validators.required]],
+            email: [element ? element.email : null, [Validators.required, Validators.email]],
+            mobileNumber: [element ? element.mobileNumber : null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+            address: [element ? element.address : null, [Validators.required]],
+            dietaryRestrictions: null
+        })
+    }
+
+    createReferFriendForm(): FormGroup {
+        return this._formBuilder.group({
+            email: [null, [Validators.required, Validators.email]]
+        })
+    }
+
+    /**
+     * Change Password Form
+     */
+    createChangePasswordForm(): FormGroup {
+        return this._formBuilder.group({
+            oldPassword: [null, [Validators.required]],
             password: [null, [Validators.required]],
             confirmPassword: [null, [Validators.required]]
         }, {
@@ -100,13 +131,9 @@ export class UserService implements Resolve<any>{
     /**
      * Change Password Form
      */
-    createChangePasswordForm(): FormGroup {
+    createForgotPasswordForm(): FormGroup {
         return this._formBuilder.group({
-            oldPassword: [null, [Validators.required]],
-            password: [null, [Validators.required, Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")]],
-            confirmPassword: [null, [Validators.required]]
-        }, {
-            validator: MustMatch('password', 'confirmPassword')
+            email: [null, [Validators.required, Validators.email]]
         })
     }
 
@@ -122,7 +149,9 @@ export class UserService implements Resolve<any>{
             if (response && response.status === 'OK') {
                 this._loadingService.loading.next(false);
                 this._utilityService.successMessage(response.message, response.status);
-                this._router.navigateByUrl("/signin");
+                if (type === 'add') {
+                    this._router.navigateByUrl("/signin");
+                }
             } else {
                 this._loadingService.loading.next(false);
                 this._utilityService.errorMessage(response.message, response.status);
@@ -145,7 +174,7 @@ export class UserService implements Resolve<any>{
      * @param userId 
      */
     changePassword(formData: FormData, userId: any) {
-        return this._apiService.post(`user/changePassword/${userId}`, formData);
+        return this._apiService.post(`changePassword`, formData);
     }
 
     /**
@@ -188,7 +217,6 @@ export class UserService implements Resolve<any>{
         this._apiService.post('user/getListByFilter', data).then((response: any) => {
             this._loadingService.loading.next(false);
             if (response && response.body.status === 'OK') {
-                this.exportData(response.body.data);
             } else {
                 this._utilityService.errorMessage(response.body.message, response.body.status);
             }
@@ -257,8 +285,8 @@ export class UserService implements Resolve<any>{
      * 
      * @param emailId 
      */
-    forgotPassword(emailId: any) {
-        return this._apiService.get(`user/forgotPassword${emailId}`);
+    forgotPassword(data: any) {
+        return this._apiService.post(`user/password/forgot`, data);
     }
 
     /**
@@ -267,7 +295,7 @@ export class UserService implements Resolve<any>{
      * @param id 
      */
     getDataById(id: any) {
-        return this._apiService.get(`user/getById/${id}`);
+        return this._apiService.get(`user/${id}`);
     }
 
     /**
@@ -312,27 +340,7 @@ export class UserService implements Resolve<any>{
         });
     }
 
-    exportData(data: any[]) {
-        let dataList: any[] = [];
-        data.forEach(element => {
-            let json = {
-                'Name': `${element.firstName} ${element.lastName}`,
-                'Email': element.email,
-                'Mobile': element.mobileNumber,
-                'Emergency Mobile': element.emergencyMobileNumber,
-                'Create Date': this._utilityService.getFormatedDateTime(element.createdAt),
-                'Date Of Birth': this._utilityService.getFormatedDate(element.dateOfBirth),
-                'Date Of Joining': this._utilityService.getFormatedDate(element.dateOfJoining),
-                'Gender': this._utilityService.getGender(element.gender),
-                'Role': this._utilityService.getUserRole(element.role),
-                'Status': this._utilityService.getStatus(element.status),
-                'Address': element.address,
-                'Country': element.country,
-                'State': element.state,
-                'City': element.city,
-                'Zip Code': element.zipCode
-            }
-            dataList.push(json);
-        });
+    referFriend(formData: FormData) {
+        return this._apiService.post(`user/refer`, formData);
     }
 }

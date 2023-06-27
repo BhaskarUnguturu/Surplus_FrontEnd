@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from './user-routing.module';
-import { UserComponent } from './user.component';
-import { AddUserComponent } from './add-user/add-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 
@@ -32,8 +30,6 @@ import { SharedPipesModule } from '../../../shared/pipes/shared-pipes.module';
 
 @NgModule({
   declarations: [
-    UserComponent,
-    AddUserComponent,
     ListUserComponent,
     ViewUserComponent
   ],

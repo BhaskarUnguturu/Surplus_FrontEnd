@@ -1,21 +1,20 @@
-<mat-toolbar>
+<mat-toolbar class="bg-none">
     Refer Friend
 </mat-toolbar>
-<br><br>
-<div class="text-center">
+<br>
+<br>
+<div style="margin: 0 auto; width: 700px; text-align: center;">
     <mat-card>
         <form [formGroup]="formGroup">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput type="email" placeholder="Enter email"
+                <input type="email" matInput placeholder="Enter a email"
                     formControlName="email">
-                <mat-error>Email should be valid or required</mat-error>
+                <mat-error>Email must be filled or valid</mat-error>
             </mat-form-field>
         </form>
+        <br>
         <button mat-raised-button color="primary" [disabled]="formGroup.invalid"
-            (click)="submit()">
-            <mat-icon>send</mat-icon>
-            Send
-        </button>
+            (click)="submit()"><mat-icon>send</mat-icon> Send</button>
     </mat-card>
 </div>

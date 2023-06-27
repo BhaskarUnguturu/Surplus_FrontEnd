@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UtilityService } from '../../../shared/services/utility.service';
-import { ReferFriendService } from './refer-friend.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-refer-friend',
@@ -13,22 +13,22 @@ export class ReferFriendComponent implements OnInit {
   formGroup!: FormGroup;
 
   constructor(
-    private _referFriendService: ReferFriendService,
+    public _userService: UserService,
     private _utilityService: UtilityService
   ) { }
 
   ngOnInit(): void {
-    this.formGroup = this._referFriendService.createForm();
+    this.formGroup = this._userService.createReferFriendForm();
   }
 
   submit() {
     const data = this.formGroup.getRawValue();
-    this._referFriendService.referFriend(data.email).then((response: any) => {
+    let formData = new FormData();
+    formData.append("email", data.email);
+    this._userService.referFriend(formData).then((response: any) => {
       if (response && response.status === 'OK') {
         this.formGroup.reset();
-        this._utilityService.successMessage(response.message, 'OK');
-      } else {
-        this._utilityService.successMessage(response.message, 'ERROR');
+        this._utilityService.successMessage(response.message, response.status);
       }
     })
   }
