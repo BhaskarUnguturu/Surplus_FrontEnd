@@ -19,9 +19,10 @@ export class DonationService implements Resolve<any>{
     state: string = "";
 
     STATUS: any[] = [
-        { key: 0, value: 'Pending', color: 'accent' },
-        { key: 1, value: 'Inprogress', color: 'warn' },
-        { key: 2, value: 'Completed', color: 'primary' }
+        { key: 0, value: 'In-progress', color: 'accent' },
+        { key: 1, value: 'Distributed', color: 'warn' },
+        { key: 2, value: 'In-Collection', color: 'primary' },
+        { key: 3, value: 'Completed', color: 'primary' }
     ]
 
     FOOD_TYPES: any[] = [
@@ -120,7 +121,7 @@ export class DonationService implements Resolve<any>{
             if (response && response.status === 'OK') {
                 this._loadingService.loading.next(false);
                 this._utilityService.successMessage(response.message, response.status);
-                this._router.navigateByUrl("/admin/food");
+                this._router.navigateByUrl("/admin/donation");
             } else {
                 this._loadingService.loading.next(false);
                 this._utilityService.errorMessage(response.message, response.status);
@@ -199,6 +200,10 @@ export class DonationService implements Resolve<any>{
 
     getDataListByUserId(id: any) {
         return this._apiService.get(`food/list/${id}`);
+    }
+
+    getDataList() {
+        return this._apiService.get(`donation/list`);
     }
 
     getReport() {

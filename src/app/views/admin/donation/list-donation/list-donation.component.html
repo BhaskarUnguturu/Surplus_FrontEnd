@@ -1,10 +1,6 @@
-<mat-toolbar>
+<mat-toolbar class="bg-none">
     Donations
     <span class="fill-remaining-space"></span>
-    <button mat-raised-button color="primary"
-        (click)="export()">
-        Export Report</button>
-    &nbsp;
     <button mat-raised-button color="primary"
         [routerLink]="'/admin/donation/add'" *ngIf="sessionUser.role === 1 ||
         sessionUser.role === 2 || sessionUser.role === 3 || sessionUser.role ===

@@ -27,14 +27,8 @@ export class ListDonationComponent implements OnInit {
   }
 
   getDataList() {
-    this._foodService.getDataListByUserId(this.sessionUser.id).then((response: any) => {
+    this._foodService.getDataList().then((response: any) => {
       this.dataSource = response.data;
-    })
-  }
-
-  export() {
-    this._foodService.getReport().then((response: any) => {
-      this._foodService.exportData(response.data);
     })
   }
 
