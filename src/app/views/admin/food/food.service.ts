@@ -3,7 +3,6 @@ import { UtilityService } from '../../../shared/services/utility.service';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoadingService } from '../../../shared/services/loading.service';
-
 import { ExcelService } from '../../../shared/services/excel.service';
 
 @Injectable({
@@ -13,20 +12,6 @@ export class FoodService {
     data: any = null;
     routeParams: any = null;
     state: string = "";
-
-    STATUS: any[] = [
-        { key: 0, value: 'Pending', color: 'accent' },
-        { key: 1, value: 'Inprogress', color: 'warn' },
-        { key: 2, value: 'Completed', color: 'primary' }
-    ]
-
-    FOOD_TYPES: any[] = [
-        { key: 'Fruit and vegetables', value: 'Fruit and vegetables', color: 'primary' },
-        { key: 'Starchy food', value: 'Starchy food', color: 'warn' },
-        { key: 'Dairy', value: 'Dairy', color: 'warn' },
-        { key: 'Protein', value: 'Protein', color: 'warn' },
-        { key: 'Fat', value: 'Fat', color: 'warn' }
-    ]
 
     /**
      * Constructor
@@ -55,24 +40,6 @@ export class FoodService {
         })
     }
 
-    getStatus(key: any) {
-        let element = this.STATUS.find(item => item.key === key);
-        if (element) {
-            return element.value;
-        } else {
-            return '';
-        }
-    }
-
-    getStatusColor(key: any) {
-        let element = this.STATUS.find(item => item.key === key);
-        if (element) {
-            return element.color;
-        } else {
-            return '';
-        }
-    }
-
     /**
      * Get data by id
      * 
@@ -92,12 +59,11 @@ export class FoodService {
             let json = element;
             dataList.push(json);
         });
-        
         this.excelService.exportToExcel(dataList, "Foods");
     }
 
-    getDataListByUserId(id: any) {
-        return this._apiService.get(`food/list/${id}`);
+    getDataList() {
+        return this._apiService.get(`food/list`);
     }
 
     addRating(data: any) {
@@ -152,5 +118,13 @@ export class FoodService {
 
     getReport() {
         return this._apiService.get(`user/reporting`);
+    }
+
+    accept(id: any) {
+        return this._apiService.put(`food/accept?id=${id}`, null);
+    }
+
+    reject(id: any) {
+        return this._apiService.put(`food/reject?id=${id}`, null);
     }
 }

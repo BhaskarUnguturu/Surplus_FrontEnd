@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FoodRoutingModule } from './food-routing.module';
-import { FoodComponent } from './food.component';
-import { AddFoodComponent } from './add-food/add-food.component';
 import { ListFoodComponent } from './list-food/list-food.component';
 import { ViewFoodComponent } from './view-food/view-food.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -23,14 +21,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RatingFeedbackComponent } from './list-food/rating-feedback/rating-feedback.component';
+import { ViewRatingFeedbackComponent } from './list-food/view-rating-feedback/view-rating-feedback.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
-    FoodComponent,
-    AddFoodComponent,
     ListFoodComponent,
     ViewFoodComponent,
-    RatingFeedbackComponent
+    RatingFeedbackComponent,
+    ViewRatingFeedbackComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +50,8 @@ import { RatingFeedbackComponent } from './list-food/rating-feedback/rating-feed
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatChipsModule
   ]
 })
 export class FoodModule { }

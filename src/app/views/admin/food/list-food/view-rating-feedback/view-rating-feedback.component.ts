@@ -8,6 +8,14 @@ import { FoodService } from '../../food.service';
   styleUrls: ['./view-rating-feedback.component.css']
 })
 export class ViewRatingFeedbackComponent implements OnInit {
+  rating: any;
+  feedback: any;
+
+  constructor(public matDialogRef: MatDialogRef<ViewRatingFeedbackComponent>,
+    @Inject(MAT_DIALOG_DATA) public _data: any
+  ) {
+    matDialogRef.disableClose = true;
+  }
 
   ngOnInit() {
   }

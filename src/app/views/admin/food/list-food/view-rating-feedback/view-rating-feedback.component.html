@@ -1,4 +1,10 @@
 <mat-toolbar>
   Rating & Feedback
+  <span class="fill-remaining-space"></span>
+  <button mat-icon-button color="primary" (click)="matDialogRef.close()">
+    <mat-icon>close</mat-icon>
+  </button>
 </mat-toolbar>
 
+<p>{{_data.feedback}}</p>
+<p>{{_data.rating}}</p>

@@ -24,8 +24,15 @@ export class RatingFeedbackComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit() {
+  async submit() {
     const data = this.formGroup.getRawValue();
+    if (data.rating) {
+      await this._foodService.addRating({ foodId: this._data, rating: data.rating });
+    }
+    if (data.feedback) {
+      await this._foodService.addFeedback({ foodId: this._data, feedback: data.feedback });
+    }
+    this.matDialogRef.close(true);
   }
 
 }

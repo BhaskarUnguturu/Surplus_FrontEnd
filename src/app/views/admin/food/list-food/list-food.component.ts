@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UtilityService } from '../../../../shared/services/utility.service';
+import { DonationService } from '../../donation/donation.service';
 import { FoodService } from '../food.service';
 import { RatingFeedbackComponent } from './rating-feedback/rating-feedback.component';
+import { ViewRatingFeedbackComponent } from './view-rating-feedback/view-rating-feedback.component';
 
 @Component({
   selector: 'app-list-food',
@@ -11,14 +13,15 @@ import { RatingFeedbackComponent } from './rating-feedback/rating-feedback.compo
 })
 export class ListFoodComponent implements OnInit {
 
-  displayedColumns: string[] = ['sno', 'type', 'quantity', 'expirationDate', 'dietaryRestrictions', 'schedulingDateTime', 'typeOfDonation', 'action'];
+  displayedColumns: string[] = ['sno', 'type', 'quantity', 'expirationDate', 'dietaryRestrictions', 'schedulingDateTime', 'typeOfDonation', 'donorName', 'receipentName', 'distributionDate', 'status', 'foodRequest', 'action'];
   dataSource: any;
   sessionUser: any;
 
   constructor(
-    private _foodService: FoodService,
+    public _foodService: FoodService,
     public _utilityService: UtilityService,
-    private _matDialog: MatDialog
+    private _matDialog: MatDialog,
+    public _donationService: DonationService
   ) {
     this.sessionUser = _utilityService.getSessionUser();
   }
@@ -28,7 +31,7 @@ export class ListFoodComponent implements OnInit {
   }
 
   getDataList() {
-    this._foodService.getDataListByUserId(this.sessionUser.id).then((response: any) => {
+    this._foodService.getDataList().then((response: any) => {
       this.dataSource = response.data;
     })
   }
@@ -39,9 +42,45 @@ export class ListFoodComponent implements OnInit {
       width: '500px',
       data: id
     });
+
+    dialogRef.afterClosed().subscribe((response: any) => {
+      if (response) {
+        this.getDataList();
+      }
+    })
+  }
+
+  viewRatingAndFeedback(element: any) {
+    let dialogRef = this._matDialog.open(ViewRatingFeedbackComponent, {
+      panelClass: 'contact-form-dialig',
+      width: '400px',
+      data: element
+    });
   }
 
   export() {
+    this._foodService.exportData(this.dataSource);
+  }
 
+  accept(id: any) {
+    this._foodService.accept(id).then((response: any) => {
+      if (response && response.status === 'OK') {
+        this._utilityService.successMessage(response.message, response.status);
+        this.getDataList();
+      } else {
+        this._utilityService.successMessage(response.message, response.status);
+      }
+    })
+  }
+
+  reject(id: any) {
+    this._foodService.reject(id).then((response: any) => {
+      if (response && response.status === 'OK') {
+        this._utilityService.successMessage(response.message, response.status);
+        this.getDataList();
+      } else {
+        this._utilityService.successMessage(response.message, response.status);
+      }
+    })
   }
 }
