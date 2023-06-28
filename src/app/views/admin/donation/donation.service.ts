@@ -115,9 +115,9 @@ export class DonationService implements Resolve<any>{
      * @param data 
      * @param type 
      */
-    addOrUpdateData(data: any, type: any) {
+    addOrUpdateData(data: any, id: any) {
         this._loadingService.loading.next(true);
-        this._apiService.post(type === 'add' ? 'food/add' : 'food/update', data).then((response: any) => {
+        this._apiService.post(id ? `food/update?id=${id}` : 'food/add', data).then((response: any) => {
             if (response && response.status === 'OK') {
                 this._loadingService.loading.next(false);
                 this._utilityService.successMessage(response.message, response.status);
@@ -161,7 +161,7 @@ export class DonationService implements Resolve<any>{
      * @param id 
      */
     getDataById(id: any) {
-        return this._apiService.get(`food/getById/${id}`);
+        return this._apiService.get(`get/food/${id}`);
     }
 
     /**

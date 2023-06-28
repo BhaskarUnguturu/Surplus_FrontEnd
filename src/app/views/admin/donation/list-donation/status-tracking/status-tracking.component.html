@@ -1,0 +1,36 @@
+<mat-toolbar class="bg-none">
+  Status Tracking
+  <span class="fill-remaining-space"></span>
+  <button mat-icon-button color="primary" (click)="matDialogRef.close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="row">
+  <div class="col-12 col-md-12 hh-grayBox pt45 pb20">
+    <div class="row justify-content-between">
+      <div class="col-sm-3 order-tracking completed" *ngIf="_data>= 0 && _data
+        <= 3">
+          <span class="is-complete"></span>
+          <p>In Progress<br><span></span></p>
+        </div>
+        <div class="col-sm-3 order-tracking completed" *ngIf="_data>= 1 && _data
+          <= 3">
+            <span class="is-complete"></span>
+            <p>Distribution<br><span></span></p>
+          </div>
+          <div class="col-sm-3 order-tracking completed" *ngIf="_data>= 2 &&
+            _data
+            <= 3">
+              <span class="is-complete"></span>
+              <p>In Collection<br><span></span></p>
+            </div>
+            <div class="col-sm-3 order-tracking completed" *ngIf="_data>= 3 &&
+              _data
+              <= 3">
+                <span class="is-complete"></span>
+                <p>Completed<br><span></span></p>
+              </div>
+            </div>
+          </div>
+        </div>

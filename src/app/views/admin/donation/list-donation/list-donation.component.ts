@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UtilityService } from '../../../../shared/services/utility.service';
 import { DonationService } from '../donation.service';
+import { StatusTrackingComponent } from './status-tracking/status-tracking.component';
 
 @Component({
   selector: 'app-list-donation',
@@ -30,6 +31,14 @@ export class ListDonationComponent implements OnInit {
     this._foodService.getDataList().then((response: any) => {
       this.dataSource = response.data;
     })
+  }
+
+  statusTracking(status: any) {
+    let dialogRef = this._matDialog.open(StatusTrackingComponent, {
+      panelClass: 'contact-form-dialig',
+      width: '1000px',
+      data: status
+    });
   }
 
 }
