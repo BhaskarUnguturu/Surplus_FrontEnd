@@ -22,12 +22,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
+import { StatusTrackingComponent } from './list-donation/status-tracking/status-tracking.component';
 
 @NgModule({
   declarations: [
     AddDonationComponent,
     ListDonationComponent,
-    ViewDonationComponent
+    ViewDonationComponent,
+    StatusTrackingComponent
   ],
   imports: [
     CommonModule,

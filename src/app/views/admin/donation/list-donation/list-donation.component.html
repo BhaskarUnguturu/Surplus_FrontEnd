@@ -57,7 +57,7 @@
         <th mat-header-cell *matHeaderCellDef> Status </th>
         <td mat-cell *matCellDef="let element">
             <mat-chip-list>
-                <mat-chip selected
+                <mat-chip selected (click)="statusTracking(element.status)"
                     [color]="_foodService.getStatusColor(element.status)">
                     {{_foodService.getStatus(element.status)}}
                 </mat-chip>
@@ -86,15 +86,16 @@
                     <mat-icon>visibility</mat-icon>
                     <span>View</span>
                 </button> -->
-                <!-- <button *ngIf="(sessionUser.role === 1 ||
+                <button *ngIf="(sessionUser.role === 1 ||
                     sessionUser.role === 2 || sessionUser.role === 3 ||
-                    sessionUser.role === 4) && element.status !== 2"
+                    sessionUser.role === 4) && element.status !== 2 &&
+                    element.status !== 3"
                     mat-menu-item
                     [routerLink]="'/admin/donation/edit/' +
                     element.id">
                     <mat-icon>edit</mat-icon>
                     <span>Edit</span>
-                </button> -->
+                </button>
             </mat-menu>
         </td>
     </ng-container>
