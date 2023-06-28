@@ -40,7 +40,7 @@
       formControlName="address">
     <mat-error>Address is required</mat-error>
   </mat-form-field>
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" *ngIf="sessionUser.role !== 0">
     <mat-label>Role</mat-label>
     <mat-select placeholder="Choose Role" formControlName="role"
       (selectionChange)="onSelectionChangeRole($event.value)">
@@ -62,7 +62,7 @@
     <mat-error>Type is required</mat-error>
   </mat-form-field>
 </form>
-<div class="text-center">
+<div class="text-center" *ngIf="sessionUser.role !== 0">
   <button mat-raised-button color="primary" [disabled]="formGroup.invalid"
     (click)="submit()"><mat-icon>send</mat-icon>
     Submit</button>
