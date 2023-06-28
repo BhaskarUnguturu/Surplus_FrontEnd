@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RatingFeedbackComponent } from './list-food/rating-feedback/rating-feedback.component';
 import { ViewRatingFeedbackComponent } from './list-food/view-rating-feedback/view-rating-feedback.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { DonationModule } from '../donation/donation.module';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatNativeDateModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    DonationModule
   ]
 })
 export class FoodModule { }

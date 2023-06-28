@@ -71,7 +71,7 @@
         <th mat-header-cell *matHeaderCellDef> Status </th>
         <td mat-cell *matCellDef="let element">
             <mat-chip-list>
-                <mat-chip selected
+                <mat-chip selected (click)="statusTracking(element.status)"
                     [color]="_donationService.getStatusColor(element.status)">
                     {{_donationService.getStatus(element.status)}}
                 </mat-chip>
@@ -96,7 +96,7 @@
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button *ngIf="(sessionUser.role === 1 ||
+                <!-- <button *ngIf="(sessionUser.role === 1 ||
                     sessionUser.role === 2 || sessionUser.role === 3 ||
                     sessionUser.role === 4) && element.status !== 2"
                     mat-menu-item
@@ -104,7 +104,7 @@
                     element.id">
                     <mat-icon>edit</mat-icon>
                     <span>Edit</span>
-                </button>
+                </button> -->
                 <button mat-menu-item (click)="addRating(element.id)"
                     *ngIf="(sessionUser.role === 5 ||
                     sessionUser.role === 6) && (!element.rating &&
@@ -130,7 +130,7 @@
         <th mat-header-cell *matHeaderCellDef> Request </th>
         <td mat-cell *matCellDef="let element">
             <button *ngIf="element.status === 1 && (sessionUser.role === 5 ||
-            sessionUser.role === 6)" mat-icon-button
+                sessionUser.role === 6)" mat-icon-button
                 [matMenuTriggerFor]="menu"
                 aria-label="Example icon-button with a menu">
                 {{element.status === 1 ? 'Pending' : element.status === 2 ||
