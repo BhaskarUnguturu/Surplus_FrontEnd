@@ -105,7 +105,7 @@ export class UserService implements Resolve<any>{
             email: [element ? element.email : null, [Validators.required, Validators.email]],
             mobileNumber: [element ? element.mobileNumber : null, [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
             address: [element ? element.address : null, [Validators.required]],
-            dietaryRestrictions: null
+            dietaryRestrictions: [element ? element.dietaryRestrictions : null]
         })
     }
 
