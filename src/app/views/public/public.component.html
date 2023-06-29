@@ -1,14 +1,4 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenavLeft [mode]="mode" fixedInViewport="fixedInViewport"
-        [opened]="isOpened">
-        <app-sidebar></app-sidebar>
-    </mat-sidenav>
-
-    <!-- <mat-sidenav #sidenavRight [mode]="mode" fixedInViewport="fixedInViewport"
-        [opened]="isOpened" position="end">
-        <app-profile-sidebar></app-profile-sidebar>
-    </mat-sidenav> -->
-
     <mat-sidenav-content>
         <!-- Header -->
         <header>
@@ -23,9 +13,6 @@
                             fa-sigin"></i> Sign In</a>
                     <a class="nav-a" [routerLink]="'/signup'"><i class="fa
                             fa-sigin"></i> Sign Up</a>
-                    <!-- <a class="nav-a" href="#"><i class="fa fa-info"></i> About</a>
-                    <a class="nav-a" href="#"><i class="fa fa-phone"></i>
-                        Contact</a> -->
                 </nav>
             </mat-toolbar>
             <br>

@@ -134,7 +134,7 @@
                     <div class="circle-tile-description text-faded">
                         Total Inprogress Donation
                     </div>
-                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfFoodPending}}</div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfFoodInProgress}}</div>
                     <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
                             fa-chevron-circle-right"></i></a> -->
                 </div>
@@ -152,7 +152,25 @@
                     <div class="circle-tile-description text-faded">
                         Total Distributed Donation
                     </div>
-                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfFoodInProgress}}</div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfFoodInDistribution}}</div>
+                    <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
+                            fa-chevron-circle-right"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6" *ngIf="sessionUser.role === 1 ||
+            sessionUser.role === 2 || sessionUser.role === 3 || sessionUser.role
+            === 4 || sessionUser.role === 5 || sessionUser.role === 6">
+            <div class="circle-tile ">
+                <a>
+                    <div class="circle-tile-heading blue"><i class="fa fa-users
+                            fa-fw fa-3x"></i></div>
+                </a>
+                <div class="circle-tile-content blue">
+                    <div class="circle-tile-description text-faded">
+                        Total Collection Donation
+                    </div>
+                    <div class="circle-tile-number text-faded ">{{dataResponse?.totalCountOfFoodInCollection}}</div>
                     <!-- <a class="circle-tile-footer" href="#">More Info<i class="fa
                             fa-chevron-circle-right"></i></a> -->
                 </div>
