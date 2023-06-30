@@ -25,3 +25,32 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+Surplus food waste management system backend application
+ 
+Surplus food waste management system is a web application. This project is source code for backend software that providing all required web services to communicate with frontend applications. 
+functions of the application is as follow:
+
+- User Management, User Registration and secure login
+- User Roles - Doner: [university, restaurant, individual, NGO] Recipient: [Recipient individual, Recipient organization]
+- donation listing
+- Collection scheduling 
+- Recipient matching for food distribution and status tracking
+- donation Distribution algorithm
+- Food Inventory 
+- Reminders & Email notification
+- recipient feedback and Rating
+
+ Getting Started
+This project folder contains the source code of frontend project
+- Frontend project folder contains src folder, package.json and other configuration files. 
+- File package.json contains all the installable dependencies
+
+
+Running project
+-Build project 
+npm install
+
+-Run project
+ng serve --port =4200 or different port
+
