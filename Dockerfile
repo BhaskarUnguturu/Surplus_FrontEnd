@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app
-RUN npm run build --prod
+RUN ng build --prod
 
 # Stage 2: Run the Angular app with a Node.js server
 FROM node:18
