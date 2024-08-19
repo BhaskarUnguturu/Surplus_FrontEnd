@@ -14,14 +14,20 @@ COPY . .
 # Build the Angular app
 RUN npm run build --prod
 
-# Stage 2: Serve the Angular app with Nginx
-FROM nginx:alpine
+# Stage 2: Run the Angular app with a Node.js server
+FROM node:18
 
-# Copy the built Angular app to Nginx's default html directory
-COPY --from=build-stage /app/dist/sample /usr/share/nginx/html
+# Set the working directory
+WORKDIR /app
 
-# Expose the port on which Nginx will run
-EXPOSE 80
+# Copy the built Angular app to the working directory
+COPY --from=build-stage /app/dist/sample .
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Install a simple Node.js server to serve the Angular app
+RUN npm install -g http-server
+
+# Expose the port that the server will run on
+EXPOSE 8080
+
+# Start the Node.js server
+CMD ["http-server", ".", "-p", "8080"]
