@@ -4,7 +4,10 @@ FROM node:18 AS build-stage
 # Set the working directory
 WORKDIR /app
 
-# Install dependencies
+# Install Angular CLI globally
+RUN npm install -g @angular/cli
+
+# Install project dependencies
 COPY package.json package-lock.json ./
 RUN npm install
 
