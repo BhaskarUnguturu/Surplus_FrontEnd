@@ -14,8 +14,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the Angular app
-RUN ng build --prod
+# Build the Angular app using the production configuration
+RUN ng build --configuration=production
 
 # Stage 2: Run the Angular app with a Node.js server
 FROM node:18
