@@ -10,6 +10,7 @@ RUN npm install -g @angular/cli
 # Install project dependencies
 COPY package.json package-lock.json ./
 RUN npm install
+RUN npm install xlsx --save
 
 # Copy the rest of the application code
 COPY . .
